@@ -16,7 +16,7 @@ class Product extends Model
     ];
 
     protected $fillable = [
-        'title', 'text','order','slug','video','image','description','file','family_id','text_video','gallery'
+        'title', 'text','order','slug','video','image','description','file','family_id','text_video','gallery','featured'
     ];
 
     public $translatable = [

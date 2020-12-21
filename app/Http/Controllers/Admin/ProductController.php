@@ -105,7 +105,7 @@ class ProductController extends Controller
             $item->setTranslations('slug', collect(json_decode($request->title))->slug()->toArray());
             $item->order   = $request->order;
             $item->gallery   = @$images;
-            isset($request->featured) ? $item->featured = 1 : false;
+            isset($request->featured) ? $item->featured = 1 : $item->featured = 0;
             $item->video   = $request->video;
             $item->family_id   = $request->family_id;
 

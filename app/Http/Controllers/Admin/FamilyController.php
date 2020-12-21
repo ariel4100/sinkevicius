@@ -65,7 +65,7 @@ class FamilyController extends Controller
 
             $request->order ? $item->order = $request->order : false;
             $item->padre_id   = $request->padre_id;
-            $request->featured ? $item->featured = 1 : false;
+            $request->featured ? $item->featured = 1 : $item->featured = 0;
 
             $item->save();
 

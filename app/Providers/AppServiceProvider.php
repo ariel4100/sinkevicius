@@ -47,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
             });
             $metas =  Meta::get();
             $contacto = Content::where('section', 'contacto')->first();
-            $telefonos = collect($contacto->data['phones']);
+            $telefonos = collect(@$contacto->data['phones']);
 //            dd($contacto->data['google']);
             Inertia::share([
                 'key_web_captcha' => @$contacto->data['google'][0]['key'],

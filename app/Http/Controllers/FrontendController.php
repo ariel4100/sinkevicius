@@ -155,12 +155,12 @@ class FrontendController extends Controller
         $familia = Family::where("slug->$lang",$slug)->first();
         $familias = Family::whereNull('padre_id',null)->orderBy('order')->get();
 
-        $productos = $familia->productos;
+        $productos = $familia->productos->sortBy('order');
 
         return Inertia::render('Web/Product/Family', [
             'familia' => $familia->only('title','id','slug'),
             'sidenav' => 1,
-            'productos' => $productos->map(function ($item) {
+            'productos' => $productos->values()->map(function ($item) {
                 return [
                     'id' => $item->id,
                     'title' => $item->title,
